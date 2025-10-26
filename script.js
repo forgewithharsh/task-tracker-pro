@@ -79,11 +79,16 @@ function addTodo() {
   }
 
   // Push a new todo object
-  todos.push({ text, completed: false });
+  todos.push({ text: text, completed: false });
   input.value = "";
   render();
   saveTodos;
 }
 
 addBtn.addEventListener("click", addTodo);
+input.addEventListener("keydown", (e) => {
+  if (e.key == "Enter") {
+    addTodo();
+  }
+});
 render();
